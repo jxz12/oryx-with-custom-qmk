@@ -32,9 +32,6 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 4
 
-// https://github.com/qmk/qmk_firmware/pull/23341/files
-#define MOUSEKEY_OVERLAP_RESET
-
 #define USB_POLLING_INTERVAL_MS 10
 #define SERIAL_NUMBER "vJ0Er/Ee4nYY"
 #define LAYER_STATE_8BIT
