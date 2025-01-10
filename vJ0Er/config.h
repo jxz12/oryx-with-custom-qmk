@@ -33,7 +33,7 @@
 #define MOUSEKEY_WHEEL_MAX_SPEED 4
 
 #define USB_POLLING_INTERVAL_MS 10
-#define SERIAL_NUMBER "vJ0Er/JaOwz9"
+#define SERIAL_NUMBER "vJ0Er/Ee4nYY"
 #define LAYER_STATE_8BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
