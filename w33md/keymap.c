@@ -25,9 +25,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_ergodox_pretty(
     KC_NUM,         KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_MINUS,    KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_TILD,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_COMMA,       KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_PLUS,                                                                     KC_PERC,        KC_LCBR,        KC_RCBR,        KC_LPRN,        KC_COLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_COMMA,       KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_PLUS,                                                                     KC_BSLS,        KC_LCBR,        KC_RCBR,        KC_LPRN,        KC_COLN,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_KP_0,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_ENTER,    KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LABK,        KC_RABK,        KC_LBRC,        KC_RBRC,        KC_RPRN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_KP_DOT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_BSLS,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_KP_DOT,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_PERC,        KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+                                                                                    KC_MS_BTN1,     KC_MS_BTN2,     KC_MS_BTN3,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [4] = LAYOUT_ergodox_pretty(
     RGB_TOG,        DM_REC2,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DM_PLY2,        QK_BOOT,
@@ -164,34 +164,34 @@ void dance_0_reset(tap_dance_state_t *state, void *user_data);
 
 void on_dance_0(tap_dance_state_t *state, void *user_data) {
     if(state->count == 3) {
-        tap_code16(LGUI(LSFT(KC_3)));
-        tap_code16(LGUI(LSFT(KC_3)));
-        tap_code16(LGUI(LSFT(KC_3)));
+        tap_code16(LGUI(LSFT(KC_4)));
+        tap_code16(LGUI(LSFT(KC_4)));
+        tap_code16(LGUI(LSFT(KC_4)));
     }
     if(state->count > 3) {
-        tap_code16(LGUI(LSFT(KC_3)));
+        tap_code16(LGUI(LSFT(KC_4)));
     }
 }
 
 void dance_0_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = dance_step(state);
     switch (dance_state[0].step) {
-        case SINGLE_TAP: register_code16(LGUI(LSFT(KC_3))); break;
+        case SINGLE_TAP: register_code16(LGUI(LSFT(KC_4))); break;
         case SINGLE_HOLD: register_code16(LGUI(LSFT(KC_5))); break;
-        case DOUBLE_TAP: register_code16(LGUI(LSFT(KC_4))); break;
+        case DOUBLE_TAP: register_code16(LGUI(LSFT(KC_3))); break;
         case DOUBLE_HOLD: register_code16(LCTL(LGUI(KC_ESCAPE))); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(LGUI(LSFT(KC_3))); register_code16(LGUI(LSFT(KC_3)));
+        case DOUBLE_SINGLE_TAP: tap_code16(LGUI(LSFT(KC_4))); register_code16(LGUI(LSFT(KC_4)));
     }
 }
 
 void dance_0_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[0].step) {
-        case SINGLE_TAP: unregister_code16(LGUI(LSFT(KC_3))); break;
+        case SINGLE_TAP: unregister_code16(LGUI(LSFT(KC_4))); break;
         case SINGLE_HOLD: unregister_code16(LGUI(LSFT(KC_5))); break;
-        case DOUBLE_TAP: unregister_code16(LGUI(LSFT(KC_4))); break;
+        case DOUBLE_TAP: unregister_code16(LGUI(LSFT(KC_3))); break;
         case DOUBLE_HOLD: unregister_code16(LCTL(LGUI(KC_ESCAPE))); break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(LGUI(LSFT(KC_3))); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(LGUI(LSFT(KC_4))); break;
     }
     dance_state[0].step = 0;
 }
