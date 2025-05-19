@@ -1,8 +1,3 @@
-/*
-  Set any config.h overrides for your specific keymap here.
-  See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
-*/
-
 #undef DEBOUNCE
 #define DEBOUNCE 15
 
@@ -33,7 +28,7 @@
 #define MOUSEKEY_WHEEL_MAX_SPEED 4
 
 #define USB_POLLING_INTERVAL_MS 10
-#define SERIAL_NUMBER "w33md/dPP4w9"
+#define SERIAL_NUMBER "w33md/lb7ROG"
 #define LAYER_STATE_8BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
